@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+	<h1>Products</h1>
+			
+	<table class="w3-table-all w3-hoverable" >
+		<tr>									
+			<td>Code</td>
+			<td>Description</td>
+			<td>Price</td>
+		</tr>
+		<tr th:each="product:${boxedProducts}">
+			<td th:text="${product.id}"></td>
+			<td th:text="${product.description}"></td>
+			<td th:text="${product.price}"></td>
+			
+			<td> <a th:href ="@{buy(id=${product.id})}"
+				class="btn btn-primary">  Buy</a> </td>
+			
+		</tr>
+		</table>
+		
+		<div class="w3-container w3-teal"><a th:href="@{seeCart}"> See shopping cart </a></div>
+		<br>
+
+</html>
